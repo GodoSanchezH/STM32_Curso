@@ -1,0 +1,26 @@
+22:24:03 **** Incremental Build of configuration Debug for project Ejemplo5_LCD ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:106:5: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+  106 |     sprintf(str_i,"%02u",i);
+      |     ^~~~~~~
+../Core/Src/main.c:106:5: warning: incompatible implicit declaration of built-in function 'sprintf'
+../Core/Src/main.c:25:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   24 | #include "LCD_STM32.h"
+  +++ |+#include <stdio.h>
+   25 | /* USER CODE END Includes */
+arm-none-eabi-gcc -o "Ejemplo5_LCD.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Cursos2023\Stm32_Hal\Ejemplos\Ejemplo5_LCD\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Ejemplo5_LCD.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Ejemplo5_LCD.elf
+ 
+arm-none-eabi-size   Ejemplo5_LCD.elf 
+arm-none-eabi-objdump -h -S  Ejemplo5_LCD.elf  > "Ejemplo5_LCD.list"
+   text	   data	    bss	    dec	    hex	filename
+  10128	    120	   1592	  11840	   2e40	Ejemplo5_LCD.elf
+Finished building: default.size.stdout
+ 
+Finished building: Ejemplo5_LCD.list
+ 
+
+22:24:04 Build Finished. 0 errors, 2 warnings. (took 1s.81ms)
+
